@@ -133,7 +133,7 @@
                                             </span>
                                         </td>
                                         <td class="text-sm text-gray-700 whitespace-nowrap text-left px-4 py-4 text-left">
-                                            <span class="inline-block w-48 truncate">
+                                            <span class="inline-block w-24 truncate">
                                                 {{ application.student.registration_number }}
                                             </span>
                                         </td>
