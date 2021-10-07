@@ -82,14 +82,33 @@
                         <table class="w-full mt-6">
                             <thead>
                                 <tr class="border-b border-gray-300">
-                                    <th class="text-xs text-left pr-4 py-4 whitespace-nowrap text-left">Student</th>
-                                    <th class="text-xs text-left px-4 py-4 whitespace-nowrap text-left">Sex</th>
-                                    <th class="text-xs text-left px-4 py-4 whitespace-nowrap text-left">Course</th>
-                                    <th class="text-xs text-left px-4 py-4 whitespace-nowrap text-left">Registration number</th>
-                                    <th class="text-xs text-left px-4 py-4 whitespace-nowrap text-left">Room type</th>
-                                    <th class="text-xs text-left px-4 py-4 whitespace-nowrap text-right">Room capacity</th>
-                                    <th class="text-xs text-left px-4 py-4 whitespace-nowrap text-right">Amount</th>
-                                    <th class="text-xs text-left px-4 py-4 whitespace-nowrap text-right">Academic year</th>
+                                    <th class="text-xs text-left pr-4 py-4 whitespace-nowrap text-left">
+                                        Student
+                                    </th>
+                                    <th class="text-xs text-left px-4 py-4 whitespace-nowrap text-left">
+                                        Sex
+                                    </th>
+                                    <th class="text-xs text-left px-4 py-4 whitespace-nowrap text-left">
+                                        Course
+                                    </th>
+                                    <th class="text-xs text-left px-4 py-4 whitespace-nowrap text-left">
+                                        Registration number
+                                    </th>
+                                    <th class="text-xs text-left px-4 py-4 whitespace-nowrap text-left">
+                                        Room type
+                                    </th>
+                                    <th class="text-xs text-left px-4 py-4 whitespace-nowrap text-right">
+                                        Room capacity
+                                    </th>
+                                    <th class="text-xs text-left px-4 py-4 whitespace-nowrap text-right">
+                                        Amount
+                                    </th>
+                                    <th class="text-xs text-left px-4 py-4 whitespace-nowrap text-right">
+                                        Academic year
+                                    </th>
+                                    <th class="text-xs text-left px-4 py-4 whitespace-nowrap text-right">
+                                        &nbsp;
+                                    </th>
                                 </tr>
                             </thead>
 
@@ -106,7 +125,9 @@
                                         <span class="capitalize">{{ application.student.gender }}</span>
                                     </td>
                                     <td class="text-sm text-gray-700 whitespace-nowrap text-left px-4 py-4 text-left">
-                                        {{ application.student.course.name }}
+                                        <span class="inline-block w-48 truncate">
+                                            {{ application.student.course.name }}
+                                        </span>
                                     </td>
                                     <td class="text-sm text-gray-700 whitespace-nowrap text-left px-4 py-4 text-left">
                                         {{ application.student.registration_number }}
@@ -122,6 +143,19 @@
                                     </td>
                                     <td class="text-sm text-gray-700 whitespace-nowrap text-left px-4 py-4 text-right">
                                         {{ application.academic_year.name }}
+                                    </td>
+                                    <td class="text-sm text-gray-700 text-left px-4 py-4">
+                                        <div class="flex items-center space-x-3">
+                                            <InertiaLink
+                                                class="text-red-500 underline"
+                                                :href="route('applications.destroy', application)"
+                                                method="delete"
+                                                as="button"
+                                                type="button"
+                                            >
+                                                Delete
+                                            </InertiaLink>
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>

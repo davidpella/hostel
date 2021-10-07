@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Exports\ApplicationsExport;
-use App\Exports\InvoicesExport;
 use App\Models\AcademicYear;
 use App\Models\Application;
 use App\Models\Course;
@@ -12,10 +11,8 @@ use App\Models\Invoice;
 use App\Models\RoomType;
 use App\Models\Student;
 use App\Models\User;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rule;
@@ -69,10 +66,10 @@ class ApplicationsController extends Controller
                 'required', 'string', 'max:255'
             ],
             'phone' => [
-                'required', 'string', 'min:9', 'max:25'
+                'required', 'string', 'min:9', 'max:25', 'unique:students'
             ],
             'email' => [
-                'required', 'string', 'email'
+                'required', 'string', 'email', 'unique:students'
             ],
             'gender' => [
                 'required', 'string', Rule::in(['male', 'female'])
@@ -84,7 +81,7 @@ class ApplicationsController extends Controller
                 'required', 'string', Rule::in(['continuing', 'fresh'])
             ],
             'registration_number' => [
-                'required', 'string', 'max:255'
+                'required', 'string', 'max:255', 'unique:students'
             ],
             'registration_number_type' => [
                 'required', 'string', Rule::in(['college', 'csee', 'other'])
@@ -140,6 +137,13 @@ class ApplicationsController extends Controller
         $student->account()->save($user);
 
         return Redirect::back()->with('success', 'Your application was submitted successfully.');
+    }
+
+    public function destroy(Application $application): RedirectResponse
+    {
+        $application->delete();
+
+        return Redirect::back();
     }
 
     public function export(Request $request): BinaryFileResponse

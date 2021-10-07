@@ -99,6 +99,7 @@ Route::delete('invoices/{invoice}', [InvoicesController::class, 'destroy'])->nam
 
 Route::get('applications', [ApplicationsController::class, 'index'])->name('applications.index');
 Route::get('applications/export', [ApplicationsController::class, 'export'])->name('applications.export');
+Route::delete('applications/{application}', [ApplicationsController::class, 'destroy'])->name('applications.destroy')->middleware(['password.confirm']);
 
 Route::get('/register', [RegisteredUserController::class, 'create'])->middleware('guest')->name('register');
 Route::post('/register', [RegisteredUserController::class, 'store'])->middleware('guest');

@@ -361,7 +361,7 @@
                 if (value === 'fresh') {
                     this.form.registration_number_type = 'csee';
 
-                    this.registration_number_placeholder = 'P0209/0001';
+                    this.registration_number_placeholder = 'S0332/0300/2016';
                 }
             }
         },
