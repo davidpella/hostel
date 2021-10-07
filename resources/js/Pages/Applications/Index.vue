@@ -79,8 +79,9 @@
                             />
                         </header>
 
-                        <table class="w-full mt-6">
-                            <thead>
+                        <div class="overflow-x-auto">
+                            <table class="w-full mt-6">
+                                <thead>
                                 <tr class="border-b border-gray-300">
                                     <th class="text-xs text-left pr-4 py-4 whitespace-nowrap text-left">
                                         Student
@@ -110,56 +111,61 @@
                                         &nbsp;
                                     </th>
                                 </tr>
-                            </thead>
+                                </thead>
 
-                            <tbody>
-                                <tr
-                                    class="border-b border-gray-100"
-                                    :key="application.id"
-                                    v-for="application in applications.data"
-                                >
-                                    <td class="text-sm text-gray-700 whitespace-nowrap text-left pr-4 py-4 text-left">
-                                        {{ application.student.name }}
-                                    </td>
-                                    <td class="text-sm text-gray-700 whitespace-nowrap text-left px-4 py-4 text-left">
-                                        <span class="capitalize">{{ application.student.gender }}</span>
-                                    </td>
-                                    <td class="text-sm text-gray-700 whitespace-nowrap text-left px-4 py-4 text-left">
-                                        <span class="inline-block w-48 truncate">
-                                            {{ application.student.course.name }}
-                                        </span>
-                                    </td>
-                                    <td class="text-sm text-gray-700 whitespace-nowrap text-left px-4 py-4 text-left">
-                                        {{ application.student.registration_number }}
-                                    </td>
-                                    <td class="text-sm text-gray-700 whitespace-nowrap text-left px-4 py-4 text-left">
-                                        {{ application.room_type.name }}
-                                    </td>
-                                    <td class="text-sm text-gray-700 whitespace-nowrap text-left px-4 py-4 text-right">
-                                        {{ application.room_type.capacity }}
-                                    </td>
-                                    <td class="text-sm text-gray-700 whitespace-nowrap text-right px-4 py-4 text-right">
-                                        {{ toCurrency(application.amount) }}
-                                    </td>
-                                    <td class="text-sm text-gray-700 whitespace-nowrap text-left px-4 py-4 text-right">
-                                        {{ application.academic_year.name }}
-                                    </td>
-                                    <td class="text-sm text-gray-700 text-left px-4 py-4">
-                                        <div class="flex items-center space-x-3">
-                                            <InertiaLink
-                                                class="text-red-500 underline"
-                                                :href="route('applications.destroy', application)"
-                                                method="delete"
-                                                as="button"
-                                                type="button"
-                                            >
-                                                Delete
-                                            </InertiaLink>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                <tbody>
+                                    <tr
+                                        class="border-b border-gray-100"
+                                        :key="application.id"
+                                        v-for="application in applications.data"
+                                    >
+                                        <td class="text-sm text-gray-700 whitespace-nowrap text-left pr-4 py-4 text-left">
+                                            <span class="inline-block w-48 truncate">
+                                                {{ application.student.name }}
+                                            </span>
+                                        </td>
+                                        <td class="text-sm text-gray-700 whitespace-nowrap text-left px-4 py-4 text-left">
+                                            <span class="capitalize">{{ application.student.gender }}</span>
+                                        </td>
+                                        <td class="text-sm text-gray-700 whitespace-nowrap text-left px-4 py-4 text-left">
+                                            <span class="inline-block w-48 truncate">
+                                                {{ application.student.course.name }}
+                                            </span>
+                                        </td>
+                                        <td class="text-sm text-gray-700 whitespace-nowrap text-left px-4 py-4 text-left">
+                                            <span class="inline-block w-48 truncate">
+                                                {{ application.student.registration_number }}
+                                            </span>
+                                        </td>
+                                        <td class="text-sm text-gray-700 whitespace-nowrap text-left px-4 py-4 text-left">
+                                            {{ application.room_type.name }}
+                                        </td>
+                                        <td class="text-sm text-gray-700 whitespace-nowrap text-left px-4 py-4 text-right">
+                                            {{ application.room_type.capacity }}
+                                        </td>
+                                        <td class="text-sm text-gray-700 whitespace-nowrap text-right px-4 py-4 text-right">
+                                            {{ toCurrency(application.amount) }}
+                                        </td>
+                                        <td class="text-sm text-gray-700 whitespace-nowrap text-left px-4 py-4 text-right">
+                                            {{ application.academic_year.name }}
+                                        </td>
+                                        <td class="text-sm text-gray-700 text-left px-4 py-4">
+                                            <div class="flex items-center space-x-3">
+                                                <InertiaLink
+                                                    class="text-red-500 underline"
+                                                    :href="route('applications.destroy', application)"
+                                                    method="delete"
+                                                    as="button"
+                                                    type="button"
+                                                >
+                                                    Delete
+                                                </InertiaLink>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
                         <div class="flex items-center justify-between pt-4">
                             <Pagination :payload="applications" />
