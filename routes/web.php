@@ -3,7 +3,6 @@
 use App\Http\Controllers\AcademicYearsController;
 use App\Http\Controllers\ApplicationsController;
 use App\Http\Controllers\CoursesController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HostelsController;
 use App\Http\Controllers\InvoicesController;
 use App\Http\Controllers\RoomsController;
@@ -20,10 +19,6 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
-use App\Models\AcademicYear;
-use App\Models\Invoice;
-use App\Models\Room;
-use App\Models\Semester;
 use Illuminate\Support\Facades\Route;
 
 Route::inertia('components', 'Components');

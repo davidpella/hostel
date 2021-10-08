@@ -69,7 +69,7 @@ class ApplicationsController extends Controller
                 'required', 'string', 'min:9', 'max:25', 'unique:students'
             ],
             'email' => [
-                'required', 'string', 'email', 'unique:students'
+                'required', 'string', 'email', 'unique:users'
             ],
             'gender' => [
                 'required', 'string', Rule::in(['male', 'female'])

@@ -70,6 +70,13 @@ class Application extends Model
         ]);
     }
 
+    public function scopeWithTenantPhoneNumber(Builder $builder)
+    {
+        $builder->addSelect(['tenant_phone' => Student::select('phone')
+            ->whereColumn('students.id', 'applications.student_id')
+        ]);
+    }
+
     public function scopeWithTenantGender(Builder $builder)
     {
         $builder->addSelect(['tenant_gender' => Student::select('gender')

@@ -19,6 +19,7 @@ class ApplicationsExport implements FromQuery, ShouldAutoSize, WithMapping, With
     {
         return Application::select(['amount'])
             ->withTenantName()
+            ->withTenantPhoneNumber()
             ->withTenantGender()
             ->withTenantLocale()
             ->withTenantRegistrationNumber()
@@ -33,6 +34,7 @@ class ApplicationsExport implements FromQuery, ShouldAutoSize, WithMapping, With
             $row->room_type_name,
             $row->room_type_capacity,
             $row->tenant_name,
+            $row->tenant_phone,
             $row->tenant_gender,
             $row->tenant_course_name,
             $row->tenant_locale,
@@ -47,7 +49,8 @@ class ApplicationsExport implements FromQuery, ShouldAutoSize, WithMapping, With
             [
                 'Room type',
                 'Capacity',
-                'Name of tenant',
+                'Tenant name',
+                'Tenant phone',
                 'Gender',
                 'Course',
                 'Internation',
@@ -66,12 +69,13 @@ class ApplicationsExport implements FromQuery, ShouldAutoSize, WithMapping, With
                     'size' => 12
                 ],
             ],
-            'H'  => [
+
+            'B'  => [
                 'alignment' => [
                     'horizontal' => Alignment::HORIZONTAL_RIGHT,
                 ],
             ],
-            'B'  => [
+            'I'  => [
                 'alignment' => [
                     'horizontal' => Alignment::HORIZONTAL_RIGHT,
                 ],
