@@ -5,30 +5,46 @@
         <meta name="description" content="Your page description">
     </Head>
 
-    <div class="relative flex items-top justify-center min-h-screen bg-white dark:bg-gray-900 sm:items-center sm:pt-0">
-        <div v-if="canLogin" class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-            <Link v-if="user" :href="route('applications.index')" class="text-sm text-gray-700 underline">
+    <div class="lg:relative lg:flex items-top justify-center min-h-screen bg-white dark:bg-gray-900 sm:items-center sm:pt-0">
+        <div
+            v-if="canLogin"
+            class="lg:fixed lg:top-0 lg:right-0 px-6 py-4 sm:block flex justify-end"
+        >
+            <Link
+                v-if="user"
+                :href="route('applications.index')"
+                class="text-sm text-gray-700 lg:underline"
+            >
                 Dashboard
             </Link>
 
             <template v-else>
-                <Link :href="route('login')" class="text-sm text-gray-700 underline">
+                <Link
+                    :href="route('login')"
+                    class="text-sm text-gray-700 lg:underline"
+                >
                     Log in
                 </Link>
 
-                <Link v-if="canApply" :href="route('applications')" class="ml-4 text-sm text-gray-700 underline">
+                <Link
+                    v-if="canApply"
+                    :href="route('applications')"
+                    class="ml-4 text-sm lg:text-gray-700 lg:underline bg-gray-900 lg:bg-transparent lg:py-0 py-3 lg:px-0 px-4 font-medium text-white rounded-md"
+                >
                     Hostel Application
                 </Link>
             </template>
         </div>
 
-        <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 lg:mt-0 mt-12">
             <header class="px-6">
-                <h1 class="text-5xl font-black">Accommodation</h1>
+                <h1 class="lg:text-5xl text-3xl font-black">
+                    Accommodation
+                </h1>
             </header>
 
-            <div class="flex mt-12">
-                <div class="w-1/2 px-6">
+            <div class="flex lg:flex-row flex-col mt-12">
+                <div class="lg:w-1/2 w-full px-6 order-2 lg:order-1">
                     <div class="space-y-6">
                         <p class="text-lg text-gray-700 leading-7">
                             The university provides hostels for both male and female students, although not enough to
@@ -96,11 +112,11 @@
                     </div>
                 </div>
 
-                <div class="w-1/2 px-6">
+                <div class="lg:w-1/2 w-full px-6 order-1 lg:order-2 mb-8 lg:mb-0">
                     <img
                         src="http://www.hkmu.ac.tz/images/accomodation.jpg"
                         alt="Accommodation Image"
-                        class="h-full rounded-lg object-cover"
+                        class="h-full rounded-lg object-cover w-full"
                     />
                 </div>
             </div>

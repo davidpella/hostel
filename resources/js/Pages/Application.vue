@@ -1,10 +1,17 @@
 <template>
-    <div class="flex">
-        <div class="w-1/2 bg-gray-200"></div>
+    <div class="flex lg:flex-row flex-col">
+        <div class="lg:w-1/2 bg-gray-200"></div>
 
-        <div class="w-1/2">
-            <div class="my-12 mx-auto max-w-lg">
-                <div v-if="$page.props.flash.success" class="bg-green-50 text-sm text-green-900 font-medium py-4 px-4 rounded-md border border-green-300">
+        <div class="lg:w-1/2">
+            <div class="my-12 mx-auto max-w-lg lg:px-0 px-6">
+                <header class="border-b border-gray-200 py-4">
+                    <a href="/">Home</a>
+                </header>
+
+                <div
+                    v-if="$page.props.flash.success"
+                    class="mt-8 bg-green-50 text-sm text-green-900 font-medium py-4 px-4 rounded-md border border-green-300"
+                >
                     {{ $page.props.flash.success }}
                 </div>
 
@@ -30,8 +37,8 @@
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-4 gap-3">
-                        <div class="col-span-2 space-y-2">
+                    <div class="grid lg:grid-cols-4 lg:gap-3 gap-6">
+                        <div class="lg:col-span-2 col-span-1 space-y-2">
                             <label class="block w-full text-sm text-gray-700 font-medium" for="phone">
                                 Phone number
                             </label>
@@ -56,7 +63,7 @@
                             </div>
                         </div>
 
-                        <div class="col-span-2 space-y-2">
+                        <div class="lg:col-span-2 col-span-1 space-y-2">
                             <label class="block w-full text-sm text-gray-700 font-medium" for="email">
                                 Email address <span class="text-gray-400">optional</span>
                             </label>
@@ -101,7 +108,7 @@
 
                     <hr />
 
-                    <div class="grid grid-cols-4 gap-3">
+                    <div class="grid lg:grid-cols-4 lg:gap-3 gap-6">
                         <div class="col-span-2 space-y-2">
                             <label class="block w-full text-sm text-gray-700 font-medium" for="course_id">
                                 Course
@@ -146,7 +153,7 @@
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-4 gap-3">
+                    <div class="grid lg:grid-cols-4 lg:gap-3">
                         <div class="col-span-2 space-y-2">
                             <label class="block w-full text-sm text-gray-700 font-medium" for="registration_number">
                                 Registration number
@@ -216,7 +223,7 @@
 
                     <hr />
 
-                    <div class="grid grid-cols-4 gap-3">
+                    <div class="grid lg:grid-cols-4 lg:gap-3">
                         <div class="col-span-2 space-y-2">
                             <label class="block w-full text-sm text-gray-700 font-medium" for="academic_year_id">
                                 Academic year
@@ -239,7 +246,7 @@
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-4 gap-3">
+                    <div class="grid lg:grid-cols-4 lg:gap-3 gap-6">
                         <div class="col-span-2 space-y-2">
                             <label class="block w-full text-sm text-gray-700 font-medium" for="room_type_id">
                                 Room Type
@@ -285,10 +292,10 @@
 
                     <hr />
 
-                    <footer class="flex items-center justify-end">
+                    <footer class="flex items-center lg:justify-end">
                         <button
                             type="submit"
-                            class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150"
+                            class="lg:w-auto w-full lg:inline-flex items-center px-4 lg:py-2 py-3 bg-gray-800 border border-transparent rounded-md font-semibold text-center lg:text-xs text-sm text-white hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150"
                             :class="{ 'opacity-25': form.processing }"
                             :disabled="form.processing"
                         >
